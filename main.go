@@ -38,6 +38,7 @@ var html = `<!doctype html>
 		  <p><font face = "Arial" size = "4"><b> Remote Address: </b>%s</font></p>
 		  <p><font face = "Arial" size = "4"><b> User Agent: </b>%s</font></p>
 		  <p><font face = "Arial" size = "4"><b> MIME type: </b>%s</font></p>
+		  <p><font face = "Arial" size = "4"><b> X-Forwarded-For: </b>%s</font></p>
         </div>  
       </div>
 	</div>
@@ -84,6 +85,11 @@ func locate(w http.ResponseWriter, r *http.Request) {
 	// Header
 	request = append(request, fmt.Sprintf("Host: %v", r.Host))
 	request = append(request, fmt.Sprintf("Remote Address: %s", r.RemoteAddr))
+	xforwardedfor := r.Header.Get("X-FORWARDED-FOR")
+	if xforwardedfor == "" {
+		xforwardedfor = "N/A"
+	}
+	request = append(request, fmt.Sprintf("X-Forwarded-For: %s", xforwardedfor))
 
 	for name, headers := range r.Header {
 		// name = strings.ToLower(name)
@@ -91,7 +97,7 @@ func locate(w http.ResponseWriter, r *http.Request) {
 			request = append(request, fmt.Sprintf("%v: %v", name, h))
 		}
 	}
-	fmt.Fprintf(w, html, r.Host, r.RemoteAddr, r.Header.Get("User-Agent"), r.Header.Get("Accept"))
+	fmt.Fprintf(w, html, r.Host, r.RemoteAddr, r.Header.Get("User-Agent"), r.Header.Get("Accept"), xforwardedfor)
 	logger.Println(strings.Join(request, "\n"))
 
 	// port scanner
