@@ -31,6 +31,7 @@ docker-build: ## Build docker image
 
 docker-run: ## Run docker
 	docker run --rm -d \
+	--network host \
 	--name $(APPNAME) \
 	-p $(SERVER_PORT):$(SERVER_PORT) \
 	-p $(PPROF_PORT):$(PPROF_PORT) \
