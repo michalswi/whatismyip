@@ -2,7 +2,7 @@ GOLANG_VERSION := 1.15.6
 ALPINE_VERSION := 3.13
 
 DOCKER_REPO := michalsw
-APPNAME := whatismyip2
+APPNAME := whatismyip
 
 SERVER_PORT ?= 8080
 PPROF_PORT ?= 5050
