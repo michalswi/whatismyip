@@ -8,3 +8,7 @@ $ curl <url/ip>/ip
 ```
 
 Example how to deploy and use **whatismyip** app on Azure VM you can find here [azure-vm-behind-lb](https://github.com/michalswi/azure-vm-behind-lb) .
+
+![pic1](./images/1.png)
+
+![pic2](./images/2.png)
