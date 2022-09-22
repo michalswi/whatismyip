@@ -70,6 +70,10 @@ func main() {
 	http.HandleFunc("/hz", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintln(w, "ok")
 	})
+	http.HandleFunc("/robots.txt", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "./robots.txt")
+		logger.Println("User-Agent for robots.txt:", r.Header.Get("User-Agent"))
+	})
 	logger.Println("Server is ready to handle requests at port", port)
 	logger.Fatal(http.ListenAndServe(":"+port, nil))
 }
