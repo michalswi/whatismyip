@@ -24,28 +24,36 @@ var html = `<!doctype html>
         <title> WhatismyIP </title>
     </head>
 	<body>
-    <div class="navbar-wrapper">
-        <div class="container">
-            <h2>What is my ip address?</h2>
-            <hr>
+		<div class="navbar-wrapper">
+			<div class="container">
+				<h2>What is my ip address?</h2>
+				<hr style="height:1px;border-width:0;color:gray;background-color:gray">
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6">
+					<h3>Your Connection:</h2>
+					<p><font face = "Arial" size = "4"><b> Host: </b>%s</font></p>
+					<p><font face = "Arial" size = "4"><b> Remote Address: </b>%s</font></p>
+					<p><font face = "Arial" size = "4"><b> User Agent: </b>%s</font></p>
+					<p><font face = "Arial" size = "4"><b> MIME type: </b>%s</font></p>
+					<p><font face = "Arial" size = "4"><b> X-Forwarded-For: </b>%s</font></p>
+				</div>  
+			</div>
+		</div>
+		<hr style="height:1px;border-width:0;color:gray;background-color:gray">
+		<div>
+		    <p>
+		    Copyright &copy; 2022
+			michalswi
+		</div>
+		<div>	
+			<a href="https://github.com/michalswi/whatismyip" target="-blank">
+				<img alt="github" src="https://github.com/fluidicon.png" width=40" height="40">
+			</a>
         </div>
-    </div>
-	<div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-6">
-          <h3>Your Connection:</h2>
-		  <p><font face = "Arial" size = "4"><b> Host: </b>%s</font></p>
-		  <p><font face = "Arial" size = "4"><b> Remote Address: </b>%s</font></p>
-		  <p><font face = "Arial" size = "4"><b> User Agent: </b>%s</font></p>
-		  <p><font face = "Arial" size = "4"><b> MIME type: </b>%s</font></p>
-		  <p><font face = "Arial" size = "4"><b> X-Forwarded-For: </b>%s</font></p>
-        </div>  
-      </div>
-	</div>
-    <hr>
-    <p>
-      Copyright &copy; 2022
-      michalswi<br>
+	</body>
 </html>
 `
 
