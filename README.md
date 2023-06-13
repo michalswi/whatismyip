@@ -1,5 +1,10 @@
 ## **IP checker**
 
+![](https://img.shields.io/github/issues/michalswi/whatismyip)
+![](https://img.shields.io/github/forks/michalswi/whatismyip)
+![](https://img.shields.io/github/stars/michalswi/whatismyip)
+![](https://img.shields.io/github/last-commit/michalswi/whatismyip)
+
 Fetch the IP Address of the host that connects to App.
 
 ```
