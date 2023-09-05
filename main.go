@@ -33,19 +33,36 @@ var html = `<!doctype html>
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12 col-sm-6">
-					<h3>Your Connection:</h2>
-					<p><font face = "Arial" size = "4"><b> Host: </b>%s</font></p>
-					<p><font face = "Arial" size = "4"><b> Remote Address: </b>%s</font></p>
-					<p><font face = "Arial" size = "4"><b> User Agent: </b>%s</font></p>
-					<p><font face = "Arial" size = "4"><b> MIME type: </b>%s</font></p>
-					<p><font face = "Arial" size = "4"><b> X-Forwarded-For: </b>%s</font></p>
-				</div>  
+					<h3>Your Connection:</h3>
+					<table style="font-family: Arial; font-size: 4;">
+						<tr>
+							<td><b>Host:</b></td>
+							<td>%s</td>
+						</tr>
+						<tr>
+							<td><b>Remote Address:</b></td>
+							<td>%s</td>
+						</tr>
+						<tr>
+							<td><b>User Agent:</b></td>
+							<td>%s</td>
+						</tr>
+						<tr>
+							<td><b>MIME type:</b></td>
+							<td>%s</td>
+						</tr>
+						<tr>
+							<td><b>X-Forwarded-For:</b></td>
+							<td>%s</td>
+						</tr>
+					</table>
+				</div>
 			</div>
 		</div>
 		<hr style="height:1px;border-width:0;color:gray;background-color:gray">
 		<div>
 		    <p>
-		    Copyright &copy; 2022
+		    Copyright &copy; 2023
 			michalswi
 		</div>
 		<div>	
@@ -87,7 +104,6 @@ func main() {
 }
 
 func locate(w http.ResponseWriter, r *http.Request) {
-
 	var request []string
 
 	// Request line
@@ -110,7 +126,18 @@ func locate(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	fmt.Fprintf(w, html, r.Host, r.RemoteAddr, r.Header.Get("User-Agent"), r.Header.Get("Accept"), xforwardedfor)
-	logger.Println(strings.Join(request, "\n"))
+
+	// display all request's headers
+	// logger.Println(strings.Join(request, "\n"))
+	// fmt.Println()
+	// or
+	logger.Println()
+	fmt.Println(strings.Join(request, "\n"))
+	fmt.Println()
+	// or
+	// logger.Println()
+	// var mySlice interface{} = request
+	// fmt.Println(mySlice)
 
 	// port scanner
 	// var remoteAddress []string
@@ -119,7 +146,6 @@ func locate(w http.ResponseWriter, r *http.Request) {
 	// }
 	// p := getPorts(remoteAddress[0])
 	// logger.Printf("For RemoteIP: %s open ports: %d", remoteAddress[0], p)
-	fmt.Println()
 }
 
 func getIP(w http.ResponseWriter, r *http.Request) {
