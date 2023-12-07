@@ -62,7 +62,7 @@ var html = `<!doctype html>
 		<hr style="height:1px;border-width:0;color:gray;background-color:gray">
 		<div>
 		    <p>
-		    Copyright &copy; 2023
+		    Copyright &copy; 2049
 			michalswi
 		</div>
 		<div>	
